@@ -1,0 +1,148 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    color: #000000;
+    background-color: rgb(245, 247, 226);
+}
+
+main {
+    display: grid;
+
+}
+
+header {
+    height: 5rem;
+    padding: 1rem 3rem;
+    background-color: #ffffff;
+}
+
+header .tittle {
+    color: #a62b2b;
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: center;
+}
+
+header .menu {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .menu-options {
+    height: 100%;
+    font-size: 1.2rem;
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.main-board{
+    background-image: url(../images/lemons.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-board .main-board-text {
+    font-size: 2.2rem;
+    color: #000000;
+    margin-top: auto;
+}
+
+.main-board svg {
+    font-size: 4rem;
+    margin-top: auto;
+}
+
+
+.about {
+    display: grid;
+    grid-template: 35rem 35rem / 50% 50%;
+}
+
+.about .about-img1, .about .about-img2 {
+    width: 100%;
+    height: 100%;
+}
+
+.about .about-description1, .about .about-description2 {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 10rem;
+    font-size: 2rem;
+    color: #000000;
+    text-align: justify;
+}
+
+.services {
+    display: grid;
+    grid-template: 35rem / 50% 50%;
+}
+
+.services .service1, .services .service2 {
+    padding: 0 15rem;
+    font-size: 1.2rem;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: grey;
+} 
+
+.services .service1-img, .services .service2-img {
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 1rem;
+}
+
+.project-exemples {
+    display: grid;
+    grid-template: 30rem / repeat(4, 25%);
+}
+
+.project-exemples > img {
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .footer-tittle {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+footer .footer-link {
+    font-size: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+footer #social-media-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+footer figure {
+    font-size: 2.2rem;
+}
