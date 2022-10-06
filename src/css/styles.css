@@ -14,16 +14,24 @@ main {
 }
 
 header {
-    height: 5rem;
+    min-height: 5rem;
     padding: 1rem 3rem;
     background-color: #ffffff;
 }
 
 header .tittle {
-    color: #a62b2b;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     align-self: center;
+}
+
+header .tittle a {
+    color: #a62b2b;
+    transition: 0.5s ease-in-out;
+}
+
+header .tittle:hover a{
+    color: coral;
 }
 
 header .menu {
@@ -38,6 +46,20 @@ header .menu-options {
     gap: 2rem;
     display: flex;
     align-items: center;
+}
+
+header .menu-options > li {
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    transition: 1s ease-in-out;
+}
+
+header .menu-options > li:hover {
+    background-color: coral;
+}
+
+header .menu-options > li:hover a {
+    color: #ffffff;
 }
 
 .main-board{
