@@ -1,22 +1,37 @@
 html {
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    color: #000000;
-    background-color: rgb(245, 247, 226);
 }
 
 main {
+    max-width: 120rem;
+    margin: 0 auto;
     display: grid;
-
+    grid-template-areas: "header header header header"
+                         "main-board main-board main-board main-board"
+                         "about about about about"
+                         "services services services services"
+                         "exemples exemples exemples exemples"
+                         "footer footer footer footer";
+    grid-template-columns: repeat(4, 1fr);
 }
 
 header {
-    min-height: 5rem;
+    grid-area: header;
     padding: 1rem 3rem;
-    background-color: #ffffff;
+    background-color: #ffffff
+}
+
+header nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .tittle {
@@ -34,24 +49,70 @@ header .tittle:hover a{
     color: coral;
 }
 
-header .menu {
+header .responsive-menu {
+    display: none;
+    width: 4rem;
+    height: 4rem;
+}
+
+header input {
+    display: none;
+}
+
+header .responsive-menu .hamburguer {
+    background-color: #000000;
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 0.2rem;
+    top: 29px;
+    left: 15px;
+}
+
+header .responsive-menu .hamburguer:before, header .responsive-menu .hamburguer:after {
+    background-color: #000000;
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: space-between;
+}
+
+header .responsive-menu .hamburguer:before {
+    top: -1rem;
+}
+
+header .responsive-menu .hamburguer:after {
+    bottom: -1rem;
+}
+
+header input:checked ~ label .hamburguer {
+    transform: rotate(45deg);
+    transition: 0.5s ease-in-out;
+}
+
+header input:checked ~ label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+    transition: 0.6s ease-in-out;
+}
+
+header input:checked ~ label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+    transition: 0.6s ease-in-out;
 }
 
 header .menu-options {
-    height: 100%;
     font-size: 1.2rem;
-    gap: 2rem;
     display: flex;
-    align-items: center;
+    gap: 2rem;  
 }
 
 header .menu-options > li {
     padding: 1rem 2rem;
     border-radius: 3rem;
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 header .menu-options > li:hover {
@@ -62,33 +123,116 @@ header .menu-options > li:hover a {
     color: #ffffff;
 }
 
+@media screen and (max-width: 900px) {
+    
+    header .menu .menu-options {
+        display: none;
+    }
+    
+    header .menu .menu-options {
+        background-color: #ffffff;
+        width: 12rem;
+        padding: 1rem;
+        border-radius: 0 0 5px 5px;
+        position: absolute;
+        top: 5rem;
+        right: 3rem;
+        z-index: 1;
+    }
+
+    header .menu .menu-options > li {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    header .menu .menu-options li:last-child {
+        margin-bottom: 0;
+    }
+
+    header input:checked ~ .menu-options {
+        display: block;
+    }
+
+    header .menu .responsive-menu {
+        display: block;
+        transition: 0.6s ease-in-out;
+    }
+
+    /* header input:checked ~ label .responsive-menu {
+        transform: translateX(-11rem);
+    } */
+
+}
+
 .main-board{
-    background-image: url(../images/lemons.jpg);
-    background-repeat: no-repeat;
+    height: 89vh;
+    grid-area: main-board;
+    background: url(../images/lemons.jpg) center center no-repeat;
     background-size: cover;
-    background-position: center;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .main-board .main-board-text {
-    font-size: 2.2rem;
-    color: #000000;
-    margin-top: auto;
-}
-
-.main-board svg {
     font-size: 4rem;
-    margin-top: auto;
+    font-weight: 500;
+    text-transform: uppercase;
+
 }
 
+.main-board:after {
+    content: url(../images/seta_preta.png);
+    position: absolute;
+    bottom: 1rem;
+    animation: downarrow 0.6s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes downarrow {
+    0% {-webkit-transform: translateY(0); opacity: 0.4;}
+    100% {-webkit-transform: translateY(0.4em); opacity: 0.9;}
+}
+
+@media screen and (max-width: 770px) {
+    .main-board {
+        height: 74vh;
+    }
+    
+    .main-board .main-board-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .main-board {
+        height: 69vh;
+    }
+    
+    .main-board .main-board-text {
+        font-size: 2rem;
+    }
+}
 
 .about {
+    grid-area: about;
     display: grid;
-    grid-template: 35rem 35rem / 50% 50%;
+    grid-template: 50% 50% / 50% 50%;
+}
+
+.about .about-description1, .about .about-description2 {
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+.about .about-description1 .description1-text, .about .about-description2 .description2-text {
+    font-weight: 500;
 }
 
 .about .about-img1, .about .about-img2 {
@@ -96,56 +240,131 @@ header .menu-options > li:hover a {
     height: 100%;
 }
 
-.about .about-description1, .about .about-description2 {
-    background-color: orange;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0 10rem;
-    font-size: 2rem;
-    color: #000000;
-    text-align: justify;
+.about .about-description1 .about-description1-link, .about .about-description2 .about-description2-link {
+    transition: 0.4s ease-in-out;
+    align-self: flex-start;
+}
+
+.about .about-description1 .about-description1-link:hover, .about .about-description2 .about-description2-link:hover {
+    font-weight: 700;
+    transition: 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 770px) {
+    .about .about-description1, .about .about-description2 {
+        padding: 15%;
+        font-size: 1rem;
+    }
+ }
+
+@media screen and (max-width: 425px) {
+   .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+   }
+   
+    .about .about-description1, .about .about-description2 {
+        text-align: center;
+    }
 }
 
 .services {
+    grid-area: services;
     display: grid;
-    grid-template: 35rem / 50% 50%;
+    grid-template: auto / 50% 50%;
 }
 
 .services .service1, .services .service2 {
-    padding: 0 15rem;
-    font-size: 1.2rem;
-    text-align: justify;
+    padding: 4rem 2rem;
+    background-color: grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    background-color: grey;
+    gap: 1.5rem;
+    font-size: 1.4rem;
+    text-align: justify;
 } 
 
-.services .service1-img, .services .service2-img {
+.services .service1 {
+    background-color: lightskyblue;
+}
+
+.services .service2 {
+    background-color: lightpink;
+}
+
+.services .service1 .service1-img, .services .service2 .service2-img{
     width: 15rem;
-    height: 15rem;
-    margin-bottom: 1rem;
+}
+
+.services .service1 .service-description, .services .service2 .service-description {
+    max-width: 25rem;
+    line-height: 2rem;
+}
+
+@media screen and (max-width: 770px){
+    .services .service1, .services .service2 {
+        font-size: 1rem;
+    }
+    
+    .services .service1 .service1-img, .services .service2 .service2-img{
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .services {
+        grid-template-columns: 1fr;
+    }    
 }
 
 .project-exemples {
+    grid-area: exemples;
     display: grid;
-    grid-template: 30rem / repeat(4, 25%);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .project-exemples > img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.project-exemples > img:hover {
+    opacity: 0.7;
+}    
+
+@media screen and (max-width: 770px) {
+   .project-exemples {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+   }
+
+   .project-exemples > img {
+    height: 50vh;
+}
+}
+
+@media screen and (max-width: 425px) {
+    .project-exemples {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+       }
+
+       .project-exemples > img {
+        height: 40vh;
+    }
 }
 
 footer {
-    height: 30rem;
+    padding: 2rem 0;
+    background-color: lightgreen;
+    grid-area: footer;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 3rem;
     align-items: center;
 }
 
@@ -160,11 +379,34 @@ footer .footer-link {
     gap: 2rem;
 }
 
+footer .footer-link > li a {
+    transition: 0.3s ease-in-out;
+}
+
+footer .footer-link > li a:hover {
+    color: #ffffff;
+}
+
 footer #social-media-icons {
     display: flex;
     gap: 2rem;
-}
-
-footer figure {
     font-size: 2.2rem;
 }
+
+footer #social-media-icons > a svg {
+    transition: 0.3s ease-in-out;
+}
+
+footer #social-media-icons > a svg:hover {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 425px) {
+    footer .footer-tittle {
+        font-size: 2rem;
+    }
+
+    footer .footer-link, footer #social-media-icons  {
+        font-size: 1.5rem;
+    }
+}    

@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- links da fonte usada (roboto - 100, 400, 500, 700, 900) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/variables.css">
     <link rel="stylesheet" href="./src/css/styles.css">
-    <link rel="stylesheet" href="./src/css/menu.css">
 
     <title>Document</title>
 </head>
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <main>
         <header>
             <nav class="menu">
@@ -30,7 +31,7 @@
 
                 <label for="menu-hamburguer">
                     <div class="responsive-menu">
-                        <span class="hamburgur"></span>
+                        <span class="hamburguer"></span>
                     </div>
                 </label>
 
@@ -54,16 +55,13 @@
             </nav>
         </header>
 
-        <section class="main-board">
+        <section class="main-board">       
             <p class="main-board-text">
-                WE MAKE COOL THINGS
+                We make cool things
             </p>
-
-            <i class="fa-solid fa-arrow-down"></i>
-
         </section>
 
-        <section class="about">
+        <section id="about-link" class="about">
             <div class="about-description1">
                 <h2 class="description1-tittle">Tittle</h2>
 
@@ -89,7 +87,7 @@
             </div>
         </section>
 
-        <section class="services">
+        <section id="services-link" class="services">
             <div class="service1">
                 <img src="./src/images/bolinha1.png" alt="hot colored ball" class="service1-img">
 
@@ -111,32 +109,32 @@
             </div>
         </section>
 
-        <section class="project-exemples">
+        <section  id="projects-link" class="project-exemples">
             <img src="./src/images/tomatoes.jpg" alt="tomatoes" class="project-exemple1">
-            
+           
             <img src="./src/images/landscape.jpg" alt="landscape" class="project-exemple2">
-            
+
             <img src="./src/images/plants.jpg" alt="plants" class="project-exemple3">
-            
+
             <img src="./src/images/flowers.jpg" alt="flowers" class="project-exemple4">
         </section>
 
         <footer>
             <p class="footer-tittle">
-                Agência XYZ
+                <a href="#">Agência XYZ</a>
             </p>
 
             <nav class="links">
                 <ul class="footer-link">
-                    <li id="about-link">
+                    <li>
                         <a href="#">About</a>
                     </li>
 
-                    <li id="services-link">
+                    <li>
                         <a href="#">Services</a>
                     </li>
 
-                    <li id="projects-link">
+                    <li>
                         <a href="#">Projects</a>
                     </li>
                 </ul>
